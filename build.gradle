@@ -7,7 +7,7 @@ plugins {
 
 group 'org.example'
 version '1.0-SNAPSHOT'
-sourceCompatibility = '1.8'
+sourceCompatibility = '11'
 
 repositories {
     mavenCentral()
@@ -15,14 +15,12 @@ repositories {
 
 dependencies {
     implementation "org.jetbrains.kotlin:kotlin-stdlib"
-    implementation 'org.springframework.boot:spring-boot-starter-web'
-    implementation 'org.springframework.boot:spring-boot-starter-actuator'
-    testImplementation 'org.springframework.boot:spring-boot-starter-test'
+    implementation 'org.springframework.boot:spring-boot-starter-webflux'
 }
 
 compileKotlin {
     kotlinOptions {
-        jvmTarget = "18"
+        jvmTarget = "17"
         freeCompilerArgs += [
                 "-Xopt-in=kotlin.RequiresOptIn",
                 "-Xinline-classes"

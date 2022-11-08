@@ -1,12 +1,12 @@
 package pl.allegro.jugademy
 
-import reactor.core.publisher.Mono
-import java.time.Duration
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.delay
+import kotlinx.coroutines.withContext
 
 object IO {
-    fun process(delay: Long): Mono<String> =
-        synchronized(IO) {
-            Mono.just("IO takes $delay ms.")
-                .delayElement(Duration.ofMillis(delay))
-        }
+    suspend fun process(delay: Long): String = withContext(Dispatchers.IO) {
+        delay(delay)
+        "IO takes $delay ms."
+    }
 }

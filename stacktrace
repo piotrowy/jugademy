@@ -1,0 +1,23 @@
+2022-11-08 22:45:25.225 ERROR 42790 --- [or @coroutine#1] a.w.r.e.AbstractErrorWebExceptionHandler : [ebdc5671-1]  500 Server Error for HTTP GET "/nonblocking/delay/50/ms"
+
+java.lang.NullPointerException: null
+	at pl.allegro.jugademy.Process.calculate(Process.kt:9) ~[main/:na]
+	Suppressed: reactor.core.publisher.FluxOnAssembly$OnAssemblyException:
+Error has been observed at the following site(s):
+	*__checkpoint ⇢ Handler pl.allegro.jugademy.NonblockingController#delayXms(long, Continuation) [DispatcherHandler]
+	*__checkpoint ⇢ HTTP GET "/nonblocking/delay/50/ms" [ExceptionHandlingWebHandler]
+Original Stack Trace:
+		at pl.allegro.jugademy.Process.calculate(Process.kt:9) ~[main/:na]
+		at pl.allegro.jugademy.Process$calculate$1.invokeSuspend(Process.kt) ~[main/:na]
+		at kotlin.coroutines.jvm.internal.BaseContinuationImpl.resumeWith(ContinuationImpl.kt:33) ~[kotlin-stdlib-1.7.0.jar:1.7.0-release-281(1.7.0)]
+		at kotlinx.coroutines.DispatchedTaskKt.resume(DispatchedTask.kt:234) ~[kotlinx-coroutines-core-jvm-1.6.3.jar:na]
+		at kotlinx.coroutines.DispatchedTaskKt.resumeUnconfined(DispatchedTask.kt:190) ~[kotlinx-coroutines-core-jvm-1.6.3.jar:na]
+		at kotlinx.coroutines.DispatchedTaskKt.dispatch(DispatchedTask.kt:161) ~[kotlinx-coroutines-core-jvm-1.6.3.jar:na]
+		at kotlinx.coroutines.CancellableContinuationImpl.dispatchResume(CancellableContinuationImpl.kt:397) ~[kotlinx-coroutines-core-jvm-1.6.3.jar:na]
+		at kotlinx.coroutines.CancellableContinuationImpl.resumeImpl(CancellableContinuationImpl.kt:431) ~[kotlinx-coroutines-core-jvm-1.6.3.jar:na]
+		at kotlinx.coroutines.CancellableContinuationImpl.resumeImpl$default(CancellableContinuationImpl.kt:420) ~[kotlinx-coroutines-core-jvm-1.6.3.jar:na]
+		at kotlinx.coroutines.CancellableContinuationImpl.resumeUndispatched(CancellableContinuationImpl.kt:518) ~[kotlinx-coroutines-core-jvm-1.6.3.jar:na]
+		at kotlinx.coroutines.EventLoopImplBase$DelayedResumeTask.run(EventLoop.common.kt:500) ~[kotlinx-coroutines-core-jvm-1.6.3.jar:na]
+		at kotlinx.coroutines.EventLoopImplBase.processNextEvent(EventLoop.common.kt:284) ~[kotlinx-coroutines-core-jvm-1.6.3.jar:na]
+		at kotlinx.coroutines.DefaultExecutor.run(DefaultExecutor.kt:108) ~[kotlinx-coroutines-core-jvm-1.6.3.jar:na]
+		at java.base/java.lang.Thread.run(Thread.java:833) ~[na:na]
